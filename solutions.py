@@ -303,3 +303,24 @@ def question5(ll, m):
     #print (position)
     return ll.get_position(position).value     
 
+
+print ("\nPrinting results for question 5 :\n")
+# Test cases
+# Set up some Elements
+e1 = Node(1)
+e2 = Node(2)
+e3 = Node(3)
+e4 = Node(4)
+
+# Start setting up a LinkedList
+ll = LinkedList(e1)
+ll.append(e2)
+ll.append(e3)
+ll.append(e4)
+
+print (question5(ll, 4))
+# Should print 1
+print (question5(ll, 3))
+# Should print 2
+print (question5(ll, 1))
+# Should print 4
