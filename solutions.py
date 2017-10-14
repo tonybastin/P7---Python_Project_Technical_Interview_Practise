@@ -246,3 +246,60 @@ print (question4([[0,0,0,0,0,0],
                  0,
                  5))
 # should print 2
+
+'''
+Question 5
+Find the element in a singly linked list that's m elements from the end. For example, if a linked list has 5 elements, 
+the 3rd element from the end is the 3rd element. The function definition should look like question5(ll, m), where ll 
+is the first node of a linked list and m is the "mth number from the end". You should copy/paste the Node class below 
+to use as a representation of a node in the linked list. Return the value of the node at that position.
+
+class Node(object):
+  def __init__(self, data):
+    self.data = data
+    self.next = None
+'''
+
+class Node(object):
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+        
+class LinkedList(object):
+    def __init__(self, head = None):
+        self.head = head
+        
+    def append(self, new_element):
+        current = self.head
+        if self.head:
+            while current.next:
+                current = current.next
+            current.next = new_element
+        else:
+            self.head = new_element
+            
+    def get_position(self, position):
+        counter = 1
+        current = self.head
+        if position < 1:
+            return None
+        while counter <= position and current:
+            if counter == position:
+                return current
+            counter += 1
+            current = current.next
+        return None
+    
+    def get_length(self):
+        counter = 0 
+        current = self.head
+        while current:
+            counter += 1
+            current = current.next
+        return counter
+    
+def question5(ll, m):
+    position = ll.get_length() - m + 1
+    #print (position)
+    return ll.get_position(position).value     
+
