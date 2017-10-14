@@ -79,7 +79,7 @@ def question2(a):
 
 print ("\nPrinting results for question 2 :\n")
 print (question2(" ")) 
-# should print "enter a valid string"
+# should print "Please enter a valid string"
 print (question2("TTTTMMM")) 
 # should print "TTTT"
 print (question2("ATSVBACADCBBCDA")) 
@@ -143,3 +143,28 @@ def question3(s1):
     
     # Pass the nodes and edges to prim() to find the MST
     return ( prim( nodes, edges ))
+
+
+print ("\nPrinting results for question 3 :\n")
+s1 = {'A': [('B', 2)],
+      'B': [('A', 2), ('C', 5)],
+      'C': [('B', 5)]}
+
+s2 = {'A': [('B', 7), ('D', 5) ],
+      'B': [('A', 7), ('C', 8), ('D', 9), ('E', 7)],
+      'C': [('B', 8), ('E', 5)],
+      'D': [('A', 5), ('B', 9), ('E', 15), ('F', 6)],
+      'E': [('B', 7), ('C', 5), ('D', 15), ('F', 8), ('G', 9)],
+      'F': [('D', 6), ('E', 8), ('F',11)],
+      'G': [('E', 9), ('F', 11)]}
+
+s3 = {'A': [('B', 5), ('D', 4)],
+      'B': [('A', 7), ('C', 2), ('D', 3)],
+      'C': [('B', 2), ('D', 1)],
+      'D': [('A', 4), ('B', 3), ('C', 1)]}
+print (question3(s1)) 
+# should print {'A': [('B', 2)], 'B': [('A', 2), ('C', 5)], 'C': [('B', 5)]}
+print (question3(s2)) 
+# should print {'A': [('D', 5), ('B', 7)], 'B': [('A', 7), ('E', 7)], 'C': [('E', 5)], 'D': [('A', 5), ('F', 6)], 'E': [('B', 7), ('C', 5), ('G', 9)], 'F': [('D', 6)], 'G': [('E', 9)]}
+print (question3(s3)) 
+# should print {'A': [('D', 4)], 'B': [('C', 2)], 'C': [('D', 1), ('B', 2)], 'D': [('A', 4), ('C', 1)]}
