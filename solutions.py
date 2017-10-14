@@ -75,3 +75,14 @@ def question2(a):
         palindrome = palindrome[1:-1]
         
     return palindrome
+
+
+print ("\nPrinting results for question 2 :\n")
+print (question2(" ")) 
+# should print "enter a valid string"
+print (question2("TTTTMMM")) 
+# should print "TTTT"
+print (question2("ATSVBACADCBBCDA")) 
+# should print "ADCBBCDA"
+print(question2("Anna is taking the kayak to the river")) 
+# should print "kayak"
