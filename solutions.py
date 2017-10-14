@@ -86,3 +86,60 @@ print (question2("ATSVBACADCBBCDA"))
 # should print "ADCBBCDA"
 print(question2("Anna is taking the kayak to the river")) 
 # should print "kayak"
+
+
+'''
+Question 3
+Given an undirected graph G, find the minimum spanning tree within G. A minimum 
+spanning tree connects all vertices in a graph with the smallest possible total
+weight of edges. Your function should take in and return an adjacency list 
+structured like this:
+{'A': [('B', 2)],
+ 'B': [('A', 2), ('C', 5)],
+ 'C': [('B', 5)]}
+'''
+
+from heapq import *
+ 
+def prim( nodes, edges ):
+    conn = {key:[] for key in nodes} 
+    for n1,n2,c in edges:
+        conn[ n1 ].append( (c, n1, n2) )
+ 
+    mst = []
+    used = set( nodes[ 0 ] )
+    usable_edges = conn[ nodes[0] ][:]
+    heapify( usable_edges )
+    
+    # Implementing prim's alogoritham to find the MST
+    while usable_edges:
+        cost, n1, n2 = heappop( usable_edges )
+        if n2 not in used:
+            used.add( n2 )
+            mst.append( ( n1, n2, cost ) )
+ 
+            for e in conn[ n2 ]:
+                if e[ 2 ] not in used:
+                    heappush( usable_edges, e )
+    
+    # Coverting the MST back into the format requied by the question     
+    fmst = {key:[] for key in nodes}    
+    for n1,n2,c in mst:
+        fmst[ n1 ].append( (n2, c) )
+        fmst[ n2 ].append( (n1, c) )
+        
+    return (fmst)
+
+def question3(s1):
+    
+    # Find the nodes in the graph
+    nodes = [key for key in s1]
+    
+    # Find all the edge combination (undirected) in the graph
+    edges = []      
+    for key, values in s1.items():        
+        for value in values:
+            edges.append(( key, value[0], value[1]))    
+    
+    # Pass the nodes and edges to prim() to find the MST
+    return ( prim( nodes, edges ))
