@@ -29,7 +29,16 @@ def question1(s,t):
             return True
     return False        
 
- 
+
+print ("\nPrinting results for question 1 :\n")
+print (question1("Udacity", "ud")) 
+# should print True
+print (question1("udacity", "ciy")) 
+# should print False
+print (question1("ty", "udacity"))  
+# should print False
+print (question1("", "")) 
+# should print True 
   
 '''Question 2
     Given a string a, find the longest palindromic substring contained in a. 
