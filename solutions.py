@@ -11,23 +11,18 @@ def question1(s,t):
     
     # check if length of 's' is lower than 't'
     if len(s) < len(t):
-        return False
+        return False      
     
-    # split 's' into substrings having length of 't'
-    substrings = []
-    for i in range(len(s)-len(t)+1):        
-        substrings.append(s[i:i+len(t)])
-    
-    # for each substring check whether all letters in 't' 
-    # excist in 's' and return 'True' if found   
-    for substring in substrings:
+    # for each substring of 's' check whether all  
+    # letters in 't' excist and return 'True' if found
+    for i in range(len(s)-len(t)+1):
         count_substring = 0
-        for i in t:
-            if i in substring:
+        for j in t:
+            if j in s[i:i+len(t)]:
                 count_substring += 1                    
         if count_substring == len(t):
             return True
-    return False        
+    return False         
 
 
 print ("\nPrinting results for question 1 :\n")
