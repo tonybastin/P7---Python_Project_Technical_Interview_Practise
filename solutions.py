@@ -100,33 +100,34 @@ structured like this:
 '''
 
 from heapq import *
- 
+
+# Implementing prim's alogoritham to find the MST
 def prim( nodes, edges ):
-    conn = {key:[] for key in nodes} 
-    for n1,n2,c in edges:
-        conn[ n1 ].append( (c, n1, n2) )
- 
     mst = []
+    # 1) Initialize the tree with a single vertex
     used = set( nodes[ 0 ] )
-    usable_edges = conn[ nodes[0] ][:]
+    usable_edges = edges[ nodes[0] ][:]
     heapify( usable_edges )
     
-    # Implementing prim's alogoritham to find the MST
+    # 2) Grow the tree by one edge: of the edges that 
+    #    connect the tree to vertices not yet in the tree, 
+    #    find the minimum-weight edge, and transfer it to the tree.
+    # 3) Repeat step 2 (until all vertices are in the tree)
     while usable_edges:
         cost, n1, n2 = heappop( usable_edges )
         if n2 not in used:
             used.add( n2 )
             mst.append( ( n1, n2, cost ) )
  
-            for e in conn[ n2 ]:
+            for e in edges[ n2 ]:
                 if e[ 2 ] not in used:
                     heappush( usable_edges, e )
     
     # Coverting the MST back into the format requied by the question     
     fmst = {key:[] for key in nodes}    
-    for n1,n2,c in mst:
-        fmst[ n1 ].append( (n2, c) )
-        fmst[ n2 ].append( (n1, c) )
+    for n1,n2,cost in mst:
+        fmst[ n1 ].append( (n2, cost) )
+        fmst[ n2 ].append( (n1, cost) )
         
     return (fmst)
 
@@ -135,14 +136,14 @@ def question3(s1):
     # Find the nodes in the graph
     nodes = [key for key in s1]
     
-    # Find all the edge combination (undirected) in the graph
-    edges = []      
+    # Converting all the edge combination (undirected) into required format
+    edges = { key:[] for key in nodes}      
     for key, values in s1.items():        
         for value in values:
-            edges.append(( key, value[0], value[1]))    
-    
+            edges[key].append((value[1],  key, value[0] ))    
+        
     # Pass the nodes and edges to prim() to find the MST
-    return ( prim( nodes, edges ))
+    return ( prim( nodes, edges )) 
 
 
 print ("\nPrinting results for question 3 :\n")
@@ -162,9 +163,9 @@ s3 = {'A': [('B', 5), ('D', 4)],
       'B': [('A', 7), ('C', 2), ('D', 3)],
       'C': [('B', 2), ('D', 1)],
       'D': [('A', 4), ('B', 3), ('C', 1)]}
-print (question3(s1)) 
+print (question3(s1),"\n") 
 # should print {'A': [('B', 2)], 'B': [('A', 2), ('C', 5)], 'C': [('B', 5)]}
-print (question3(s2)) 
+print (question3(s2),"\n") 
 # should print {'A': [('D', 5), ('B', 7)], 'B': [('A', 7), ('E', 7)], 
 # 'C': [('E', 5)], 'D': [('A', 5), ('F', 6)], 
 # 'E': [('B', 7), ('C', 5), ('G', 9)], 'F': [('D', 6)], 'G': [('E', 9)]}
