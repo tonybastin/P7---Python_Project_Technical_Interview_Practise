@@ -1,18 +1,16 @@
 Question 1: 
 
 1) To check whether some anagram of 't' is a substring of 's'.
-2) The technique used is to split the string 's' into substrings 
-   of length 't' and check whether all the letter in 't' is found
-   in the substring.
-3) The variable used are a 'string' to store the substrings 
-   and an 'integer' to store the count
+2) The technique used is to compile a dictionary of alphabet  
+   counts for 't' and check with every possible consecutive 
+   substring sets in 's'.
+3) The variable used is a 'dictionary' to store the counts of 
+   alphabets in 't'.
 4) Time Effeciency 
-   Let's assume n1 = length(s) and n2 = length(t)
-		Worst case   = O{(n1-n2+1)*n2}
-				     = O{ n1*n2 - n2^2 + 1 }
-				     = O{n1*n2}
-		Average Case = O{n1*n2/2}	
-5) Space Effeciency  = O{2} 
+   Let's assume n = number of substrings of 's'
+		Worst case   = O{n}
+		Average Case = O{n/2}	
+5) Space Effeciency  = O{1}
 
 ---------------------------------------------------------------------
 		
