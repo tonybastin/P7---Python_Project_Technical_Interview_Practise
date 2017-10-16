@@ -5,6 +5,7 @@
 '''
 
 def question1(s,t):
+    import collections
     # convert 's' and 't' to lower case
     s = s.lower()
     t = t.lower()
@@ -13,17 +14,16 @@ def question1(s,t):
     if len(s) < len(t):
         return False      
     
-    # for each substring of 's' check whether all  
-    # letters in 't' excist and return 'True' if found
+    # make a dict of letter counts contained in 't' 
+    t_dict = collections.Counter(t)
+    
+    # for each substring of 's' check whether the dictionary 
+    # of alphabets of the substring matches 't_dict' 
     for i in range(len(s)-len(t)+1):
-        substring = s[i:i+len(t)]
-        count_substring = 0
-        for j in t:
-            if j in substring:
-                count_substring += 1                    
-        if count_substring == len(t):
+        #substring = s[i:i+len(t)]                           
+        if collections.Counter(s[i:i+len(t)]) == t_dict:
             return True
-    return False         
+    return False          
 
 
 print ("\nPrinting results for question 1 :\n")
