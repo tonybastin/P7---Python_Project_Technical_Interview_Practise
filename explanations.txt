@@ -1,0 +1,105 @@
+Question 1: 
+
+1) To check whether some anagram of 't' is a substring of 's'.
+2) The technique used is to split the string 's' into substrings 
+   of length 't' and check whether all the letter in 't' is found
+   in the substring.
+3) The variable used are a 'string' to store the substrings 
+   and an 'integer' to store the count
+4) Time Effeciency 
+   Let's assume n1 = length(s) and n2 = length(t)
+		Worst case   = O{(n1-n2+1)*n2}
+				     = O{ n1*n2 - n2^2 + 1 }
+				     = O{n1*n2}
+		Average Case = O{n1*n2/2}	
+5) Space Effeciency  = O{2} 
+
+---------------------------------------------------------------------
+		
+Question 2: 
+
+1) To find the longest palindromic substring contained in 'a'.
+2) The technique used is to split 'a' into substrings of all possible
+   combinations, check whether each substring is a palindrome using a 
+   helper function and update storage variable for palindrome if a 
+   longer one is found.
+3) The variables used are two 'string's', one to store the palindrome 
+   and the other one to store the substrings.
+4) Time Effeciency 
+   Let's assume n = length(a) 
+   Worst case   = O{ (n-1)*n*(n+1)/6}
+				= O{n^3/6}
+   Average Case = O{n^3/12}	
+5) Space Effeciency  = O{2} 
+
+---------------------------------------------------------------------
+		
+Question 3: 
+
+1) To find the minimum spanning tree within undirected graph G.
+2) The MST is found out usning Prim's Algoritham
+3) The variables used are include 'integer', 'string', 'list' ,'dictionaries' 
+   and a heap queue. The heap queue ("usable edges") has the edge with  the 
+   minimum edge cost at its root position when new edge combinations are added
+   to it. 
+4) Time Effeciency 
+   Let's assume n is the number of edges. The effeciency is affected while 
+   converting the dictionary data structure into required format to be inputted 
+   to prims algoritham.
+   Worst case   = O{(n-1)*n}
+				= O{n^2}	
+5) Space Effeciency  = O{n^2}
+
+---------------------------------------------------------------------
+		
+Question 4: 
+
+1) To find the Find the least common ancestor between two nodes on a binary 
+   search tree.
+2) The technique used is to find the list of parents of the first element checked, 
+   store them in a list and check whether a parent of the second element can be
+   found in the stored list
+3) The variables used are include 'integer' and 'list' to store the parents.
+4) Time Effeciency 
+   Let's assume there are n elements in the binary search tree and while
+   searching through the adjacency matrix, efficiency
+   Worst case   = O{n^2}
+   Average Case = O{n^2/2}
+5) Space Effeciency  = O{n/2}
+
+------------------------------------------------------------------------
+
+Question 4: 
+
+1) To find the least common ancestor between two nodes on a binary 
+   search tree.
+2) The technique used is to find the list of parents of the first element checked, 
+   store them in a list and check whether a parent of the second element can be
+   found in the stored list
+3) The variables used are include 'integer' and 'list' to store the parents.
+4) Time Effeciency 
+   Let's assume there are n elements in the binary search tree and while
+   searching through the adjacency matrix, efficiency
+   Worst case   = O{n^2}
+   Average Case = O{n^2/2}
+5) Space Effeciency  = O{n/2}
+
+------------------------------------------------------------------------
+
+Question 5: 
+
+1) To find the element in a singly linked list that's m elements from the end.
+2) The technique used is to find the the length of linked list, subtract 'm' to 
+   find the posititon from the begining and then find the element
+3) The variables used are include 'integer' and class objects. Class objects makes it 
+   much easier to represent linked list as we can easily link one lement to the next element.
+4) Time Effeciency 
+   Let's assume there are n elements in the linked list and we need to find 'm'th
+   element from the end
+   Worst case   = O{n+(n-m)}
+   Average Case = O{2n-m}
+5) Space Effeciency  = O{1}
+
+------------------------------------------------------------------------
+
+Question 4: 

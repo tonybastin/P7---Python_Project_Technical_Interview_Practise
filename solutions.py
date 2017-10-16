@@ -16,9 +16,10 @@ def question1(s,t):
     # for each substring of 's' check whether all  
     # letters in 't' excist and return 'True' if found
     for i in range(len(s)-len(t)+1):
+        substring = s[i:i+len(t)]
         count_substring = 0
         for j in t:
-            if j in s[i:i+len(t)]:
+            if j in substring:
                 count_substring += 1                    
         if count_substring == len(t):
             return True
