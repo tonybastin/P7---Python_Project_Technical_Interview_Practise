@@ -17,18 +17,16 @@ Question 1:
 Question 2: 
 
 1) To find the longest palindromic substring contained in 'a'.
-2) The technique used is to split 'a' into substrings of all possible
-   combinations, check whether each substring is a palindrome using a 
-   helper function and update storage variable for palindrome if a 
-   longer one is found.
-3) The variables used are two 'string's', one to store the palindrome 
-   and the other one to store the substrings.
+2) The technique used is Manacher' algorithm.
+3) The variables used is one list of size twice the length of 'a'
+   and a few int variables for counts.
 4) Time Effeciency 
    Let's assume n = length(a) 
-   Worst case   = O{ (n-1)*n*(n+1)/6}
-				= O{n^3/6}
-   Average Case = O{n^3/12}	
-5) Space Effeciency  = O{2} 
+   Worst case   = O{ 2n}
+		= O{n}
+   Average Case = O{n}	
+5) Space Effeciency  = O{2n} 
+		     = O{n}
 
 ---------------------------------------------------------------------
 		
